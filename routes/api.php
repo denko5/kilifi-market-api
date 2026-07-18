@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\MarketController;
 use App\Http\Controllers\Api\CommodityCategoryController;
 use App\Http\Controllers\Api\CommodityController;
+use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\Api\PriceController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,4 +43,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/prices', [PriceController::class, 'store']);
     Route::put('/prices/{price}', [PriceController::class, 'update']);
     Route::delete('/prices/{price}', [PriceController::class, 'destroy']);
+
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 });
