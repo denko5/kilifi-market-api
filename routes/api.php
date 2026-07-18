@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\MarketController;
 use App\Http\Controllers\Api\CommodityCategoryController;
 use App\Http\Controllers\Api\CommodityController;
 use App\Http\Controllers\Api\DashboardController;
+use App\Http\Controllers\Api\WeatherController;
 use App\Http\Controllers\Api\PriceController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,8 @@ Route::get('/prices', [PriceController::class, 'index']);
 Route::get('/prices/today', [PriceController::class, 'today']);
 Route::get('/prices/compare/{commodity}', [PriceController::class, 'compare']);
 Route::get('/prices/{price}', [PriceController::class, 'show']);
+
+Route::get('/weather', [WeatherController::class, 'index']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);

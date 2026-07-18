@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class WeatherCache extends Model
 {
+    protected $table = 'weather_cache';
+
     public $timestamps = false;
 
     protected $fillable = [

@@ -10,20 +10,20 @@ class MarketsSeeder extends Seeder
     public function run(): void
     {
         $markets = [
-            ['name' => 'Kilifi Town Market', 'location' => 'Kilifi'],
-            ['name' => 'Mtwapa Market', 'location' => 'Mtwapa'],
-            ['name' => 'Mariakani Market', 'location' => 'Mariakani'],
-            ['name' => 'Malindi Market', 'location' => 'Malindi'],
-            ['name' => 'Bamba Market', 'location' => 'Bamba'],
-            ['name' => 'Mazeras Market', 'location' => 'Mazeras'],
-            ['name' => 'Kaloleni Market', 'location' => 'Kaloleni'],
-            ['name' => 'Rabai Market', 'location' => 'Rabai'],
-            ['name' => 'Ganze Market', 'location' => 'Ganze'],
-            ['name' => 'Mtwapa Fish Market', 'location' => 'Mtwapa'],
+            ['name' => 'Kilifi Town Market', 'location' => 'Kilifi', 'latitude' => -3.6305, 'longitude' => 39.8499],
+            ['name' => 'Mtwapa Market', 'location' => 'Mtwapa', 'latitude' => -3.9450, 'longitude' => 39.7469],
+            ['name' => 'Mariakani Market', 'location' => 'Mariakani', 'latitude' => -3.8642, 'longitude' => 39.4728],
+            ['name' => 'Malindi Market', 'location' => 'Malindi', 'latitude' => -3.2192, 'longitude' => 40.1169],
+            ['name' => 'Bamba Market', 'location' => 'Bamba', 'latitude' => -3.5333, 'longitude' => 39.6500],
+            ['name' => 'Mazeras Market', 'location' => 'Mazeras', 'latitude' => -3.9833, 'longitude' => 39.5667],
+            ['name' => 'Kaloleni Market', 'location' => 'Kaloleni', 'latitude' => -3.8500, 'longitude' => 39.6500],
+            ['name' => 'Rabai Market', 'location' => 'Rabai', 'latitude' => -3.9167, 'longitude' => 39.6000],
+            ['name' => 'Ganze Market', 'location' => 'Ganze', 'latitude' => -3.4333, 'longitude' => 39.6500],
+            ['name' => 'Mtwapa Fish Market', 'location' => 'Mtwapa', 'latitude' => -3.9450, 'longitude' => 39.7469],
         ];
 
         foreach ($markets as $market) {
-            Market::firstOrCreate(
+            Market::updateOrCreate(
                 ['name' => $market['name']],
                 $market
             );
