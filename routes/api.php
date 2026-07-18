@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\MarketController;
 use App\Http\Controllers\Api\CommodityCategoryController;
 use App\Http\Controllers\Api\CommodityController;
+use App\Http\Controllers\Api\PriceController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'register']);
@@ -17,6 +18,11 @@ Route::get('/commodity-categories/{commodity_category}', [CommodityCategoryContr
 
 Route::get('/commodities', [CommodityController::class, 'index']);
 Route::get('/commodities/{commodity}', [CommodityController::class, 'show']);
+
+Route::get('/prices', [PriceController::class, 'index']);
+Route::get('/prices/today', [PriceController::class, 'today']);
+Route::get('/prices/compare/{commodity}', [PriceController::class, 'compare']);
+Route::get('/prices/{price}', [PriceController::class, 'show']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
@@ -32,4 +38,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/commodities', [CommodityController::class, 'store']);
     Route::put('/commodities/{commodity}', [CommodityController::class, 'update']);
     Route::delete('/commodities/{commodity}', [CommodityController::class, 'destroy']);
+
+    Route::post('/prices', [PriceController::class, 'store']);
+    Route::put('/prices/{price}', [PriceController::class, 'update']);
+    Route::delete('/prices/{price}', [PriceController::class, 'destroy']);
 });
