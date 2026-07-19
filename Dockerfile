@@ -22,4 +22,4 @@ RUN php artisan storage:link || true
 
 EXPOSE 8080
 
-CMD php artisan migrate --force && php artisan serve --host 0.0.0.0 --port $PORT
+CMD echo "$DB_SSL_CA_CONTENT" > /app/storage/ca.pem && php artisan migrate --force && php artisan serve --host 0.0.0.0 --port $PORT
